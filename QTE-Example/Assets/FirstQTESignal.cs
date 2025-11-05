@@ -5,7 +5,7 @@ using UnityEngine.Playables;
 public class FirstQTESiquns : MonoBehaviour
 {
     public QTEButton _QTEButton;
-    public PlayableDirector scussesCutScene;
+    public PlayableDirector successCutScene;
     public PlayableDirector failCutScene;
 
     public KeyCode keyValue;
@@ -26,9 +26,19 @@ public class FirstQTESiquns : MonoBehaviour
             {
                 if (Input.GetKeyDown(keyValue))
                 {
-
+                    successCutScene.Play();
+                    HideButton();
+                    yield break;
                 }
+                break;
             }
         }
+        HideButton();
+        failCutScene.Play();
+    }
+    void HideButton()
+    {
+        _QTEButton.gameObject.SetActive(false);
+        GetComponent<TimerManager>().enabled = false;
     }
 }

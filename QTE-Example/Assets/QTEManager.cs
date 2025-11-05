@@ -47,7 +47,6 @@ public class QTEManager : MonoBehaviour
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -55,5 +54,12 @@ public class QTEManager : MonoBehaviour
         }
     }
 
-
+    public void LoadSuccess()
+    {
+        SceneManager.LoadScene(sceneName[0]);
+    }
+    public void LoadFail()
+    {
+        SceneManager.LoadScene(sceneName[1]);
+    }
 }
